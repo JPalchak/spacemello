@@ -1,3 +1,7 @@
 steps:
+- name: anthonynixon/javascript-obfuscator:v0.0.1
+  args: ['javascript-obfuscator', 'www/index.js', '--output', 'www/spac3mello.txt']
+- name: bash:5
+  args: ['rm', 'www/index.js']
 - name: gcr.io/cloud-builders/gsutil
   args: ['-m', 'rsync', '-r', '-c', '-d', 'www', 'gs://www.spacemello.com']
